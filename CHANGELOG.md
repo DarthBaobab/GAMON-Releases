@@ -2,6 +2,40 @@
 
 Dieses Dokument wird aus den versionierten Dateien unter `.github/changelogs/` erzeugt.
 
+## v0.0.6
+
+## New
+
+- Add `start`, `stop`, and `restart` CLI commands for controlling an installed manager service, including `service start|stop|restart` variants on Windows and Linux
+- Add a hidden, session-scoped Debug menu that is unlocked by clicking the GAMON logo seven times within five seconds
+- Add a dedicated Debug and Diagnostics page for debug-mode configuration, automation dry-runs, accelerated live simulations, and the update-launcher self-test
+- Add a configurable live debug stream with Trace, Debug, Information, Warning, and Error thresholds
+- Add separate rolling user, diagnostics, error, crash, and configurable debug log files with retention limits
+- Add regression coverage for simultaneous rotation/restart scheduling, simulated backup time, user-log exception filtering, debug-log thresholds, and service CLI commands
+
+## Improved
+
+- Separate user-facing logs from technical diagnostics so the dashboard, console, manager log, and Discord receive concise Information-or-higher messages without stack traces
+- Move detailed exceptions, source contexts, SteamCMD output, system service details, and other troubleshooting data into dedicated diagnostic logs
+- Review and reduce logging levels across startup, polling, synchronization, downloads, service management, update checks, and background services
+- Consolidate all experimental and troubleshooting controls into the hidden Debug menu instead of exposing them across the main dashboard, system settings, and update page
+- Keep the normal bottom console focused on operationally relevant messages while allowing full technical output on the Debug page
+- Use manager/simulation time consistently for backup names, metadata, interval checks, and retention calculations
+- Clarify backup timestamps and preserve compatibility with existing backup archives
+- Reduce repeated cgroup PID logging by emitting changes only when the resolved process changes
+- Log SteamCMD raw output at Trace level instead of flooding regular diagnostics
+- Update service CLI help and Windows elevation guidance for manual start, stop, and restart operations
+- Correct the documented Linux release archive output path
+
+## Fixes
+
+- Execute all scheduler events that share the same timestamp instead of dropping later events after the first one fires
+- Prioritize ArkSA map rotation before a simultaneous global restart so the next rotation instance is enabled and started correctly
+- Prevent repeated rotation announcements from continually naming the same next map when rotation and restart use the same schedule time
+- Prevent backup interval messages from mixing real filesystem time with accelerated simulation time
+- Suppress expected update-check cancellation stack traces during controlled manager shutdown
+- Prevent detailed exception messages and stack traces from being exposed in dashboard and Discord logs
+
 ## v0.0.5
 
 ## New
