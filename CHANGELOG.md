@@ -1,6 +1,33 @@
 # Changelog
 
-Dieses Dokument wird aus den versionierten Dateien unter `.github/changelogs/` erzeugt.
+Dieses Dokument wird aus `changelog/WIP.md` und den versionierten Dateien unter `changelog/releases/` erzeugt.
+
+## v0.1.0
+
+## New
+
+- Add Stable and Alpha manager update channels to the dashboard
+- Publish private Alpha builds for Linux and Windows automatically after each commit to the main branch
+- Support locally stored or environment-provided GitHub tokens for private Alpha release downloads
+
+## Improved
+
+- Compare manager versions using semantic version precedence, including prerelease identifiers
+- Consider public stable releases together with private Alpha releases so a stable version supersedes its prereleases
+- Maintain unreleased notes in a visible, version-independent WIP changelog instead of requiring a versioned file before tagging
+- Archive the WIP changelog under the actual stable tag and reset it automatically after a successful release
+- Require repository-aware AI assistants to update the WIP changelog alongside user-visible changes
+
+## Fixes
+
+- Prevent differently formatted or older prerelease versions from being treated as updates solely because their version strings differ
+- Read MinVer's plain-text version output correctly when resolving automated Alpha release versions
+
+## v0.0.7
+
+## Fixes
+
+- Defer starting a newly selected ArkSA rotation map to a simultaneous global restart, preventing transition-state failures
 
 ## v0.0.6
 
