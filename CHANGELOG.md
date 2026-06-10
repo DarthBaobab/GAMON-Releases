@@ -32,6 +32,7 @@ Dieses Dokument wird aus den versionierten Dateien unter `.github/changelogs/` e
 - Execute all scheduler events that share the same timestamp instead of dropping later events after the first one fires
 - Prioritize ArkSA map rotation before a simultaneous global restart so the next rotation instance is enabled and started correctly
 - Prevent repeated rotation announcements from continually naming the same next map when rotation and restart use the same schedule time
+- Defer starting the newly selected rotation map to a simultaneous global restart, preventing transition-state failures
 - Prevent backup interval messages from mixing real filesystem time with accelerated simulation time
 - Suppress expected update-check cancellation stack traces during controlled manager shutdown
 - Prevent detailed exception messages and stack traces from being exposed in dashboard and Discord logs
